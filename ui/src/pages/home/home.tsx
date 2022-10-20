@@ -19,7 +19,7 @@ const Home = () => {
           borderRadius: "8px",
         }}
       >
-        <Title level={2}>Welcome to Feathr Feature Store</Title>
+        <Title level={2}>Hello, Welcome to Feathr Feature Store</Title>
         <span>
           You can use Feathr UI to search features, identify data sources, track
           feature lineages and manage access controls.
