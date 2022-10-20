@@ -50,9 +50,9 @@ jobs:
 
 
 
-  # Deploy the docker container to the three test environments for feathr
-  deploy:
-    runs-on: ubuntu-latest
+#   # Deploy the docker container to the three test environments for feathr
+#   deploy:
+#     runs-on: ubuntu-latest
     
     
 #     steps:
