@@ -7,9 +7,9 @@ name: Publish Feathr Docker image to DockerHub
 
 on:
   workflow_dispatch: 
-  schedule:
-    # Runs daily at 10 PM UTC, would generate nightly tag
-    - cron: '00 22 * * *'
+#   schedule:
+#     # Runs daily at 10 PM UTC, would generate nightly tag
+#     - cron: '00 22 * * *'
     
 
   push:
@@ -55,27 +55,27 @@ jobs:
     runs-on: ubuntu-latest
     
     
-    steps:
-      - name: Deploy to Feathr SQL Registry Azure Web App
-        id: deploy-to-sql-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'feathr-sql-registry'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
-          images: 'feathrfeaturestore/feathr-registry:nightly'
+#     steps:
+#       - name: Deploy to Feathr SQL Registry Azure Web App
+#         id: deploy-to-sql-webapp
+#         uses: azure/webapps-deploy@v2
+#         with:
+#           app-name: 'feathr-sql-registry'
+#           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
+#           images: 'feathrfeaturestore/feathr-registry:nightly'
     
-      - name: Deploy to Feathr Purview Registry Azure Web App
-        id: deploy-to-purview-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'feathr-purview-registry'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_PURVIEW_REGISTRY }}
-          images: 'feathrfeaturestore/feathr-registry:nightly'
-      - name: Deploy to Feathr RBAC Registry Azure Web App
-        id: deploy-to-rbac-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'feathr-rbac-registry'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_RBAC_REGISTRY }}
-          images: 'feathrfeaturestore/feathr-registry:nightly'
+#       - name: Deploy to Feathr Purview Registry Azure Web App
+#         id: deploy-to-purview-webapp
+#         uses: azure/webapps-deploy@v2
+#         with:
+#           app-name: 'feathr-purview-registry'
+#           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_PURVIEW_REGISTRY }}
+#           images: 'feathrfeaturestore/feathr-registry:nightly'
+#       - name: Deploy to Feathr RBAC Registry Azure Web App
+#         id: deploy-to-rbac-webapp
+#         uses: azure/webapps-deploy@v2
+#         with:
+#           app-name: 'feathr-rbac-registry'
+#           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_RBAC_REGISTRY }}
+#           images: 'feathrfeaturestore/feathr-registry:nightly'
 
