@@ -57,22 +57,20 @@ jobs:
       - name: Deploy to Feathr SQL Registry Azure Web App
         id: deploy-to-sql-webapp
         uses: distributhor/workflow-webhook@v2
-        with:
-          url: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
-          json: '{}'
+        env:
+          webhook_url: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
     
       - name: Deploy to Feathr Purview Registry Azure Web App
         id: deploy-to-purview-webapp
         uses: distributhor/workflow-webhook@v2
-        with:
-          url: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
-          json: '{}'
+        env:
+          webhook_url: ${{ secrets.AZURE_WEBAPP_FEATHR_PURVIEW_REGISTRY_WEBHOOK }}
 
       - name: Deploy to Feathr RBAC Registry Azure Web App
         id: deploy-to-rbac-webapp
         uses: distributhor/workflow-webhook@v2
-        with:
-          url: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
-          json: '{}'
+        env:
+          webhook_url: ${{ secrets.AZURE_WEBAPP_FEATHR_RBAC_REGISTRY_WEBHOOK }}
+ 
 
 
