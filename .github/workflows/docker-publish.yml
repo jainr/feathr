@@ -54,11 +54,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+#       - name: Deploy to Feathr SQL Registry Azure Web App
+#         id: deploy-to-sql-webapp
+#         uses: distributhor/workflow-webhook@v3.0.1
+#         env:
+#           webhook_url: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
+          
       - name: Deploy to Feathr SQL Registry Azure Web App
         id: deploy-to-sql-webapp
-        uses: distributhor/workflow-webhook@v3.0.1
-        env:
-          webhook_url: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
+        uses: joelwmale/webhook-action@v2.1.0
+        with:
+          url: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FEATHR_SQL_REGISTRY }}
     
       - name: Deploy to Feathr Purview Registry Azure Web App
         id: deploy-to-purview-webapp
